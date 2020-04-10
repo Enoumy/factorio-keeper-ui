@@ -17,9 +17,11 @@ import { ProfileMenuComponent } from "./profile-menu/profile-menu.component";
 import { UploadBlueprintComponent } from "./upload-blueprint/upload-blueprint.component";
 import { MissingPageComponent } from "./missing-page/missing-page.component";
 import { HomepageComponent } from "./homepage/homepage.component";
+import { BlueprintViewComponent } from "./blueprint-view/blueprint-view.component";
 
 const appRoutes: Routes = [
   { path: "blueprints", component: BlueprintsListComponent },
+  { path: "blueprint/:blueprint_id", component: BlueprintViewComponent },
   { path: "profile", component: ProfileMenuComponent },
   { path: "profile/:profile_id", component: ProfileViewComponent },
   { path: "upload", component: UploadBlueprintComponent },
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     ProfileMenuComponent,
     UploadBlueprintComponent,
     MissingPageComponent,
-    HomepageComponent
+    HomepageComponent,
+    BlueprintViewComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
