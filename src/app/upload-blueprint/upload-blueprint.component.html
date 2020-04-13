@@ -1,1 +1,108 @@
-<h1>Upload Blueprint Component</h1>
+<h1>Upload a Blueprint</h1>
+
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div>
+    <mat-form-field class="example-full-width" class="inline">
+      <mat-label>Player Username</mat-label>
+      <input
+        matInput
+        #message
+        maxlength="64"
+        placeholder="factorioplayer123"
+        formControlName="username"
+      />
+      <mat-hint align="start"
+        ><strong>Don't disclose personal info</strong>
+      </mat-hint>
+      <mat-hint align="end">{{ message.value.length }} / 64</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div>
+    <mat-form-field class="example-full-width" class="inline">
+      <mat-label>Player PIN</mat-label>
+      <input
+        matInput
+        #pin
+        maxlength="16"
+        placeholder="1234"
+        formControlName="pin"
+      />
+      <mat-hint align="start"
+        ><strong
+          >Access code to modify your profile. Can be anything, just remember
+          it!</strong
+        >
+      </mat-hint>
+      <mat-hint align="end">{{ pin.value.length }} / 16</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div>
+    <mat-form-field class="example-full-width" class="inline">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        #title
+        maxlength="128"
+        placeholder="Awesome blueprint"
+        formControlName="title"
+      />
+      <mat-hint align="start"
+        ><strong>Title of your blueprint</strong>
+      </mat-hint>
+      <mat-hint align="end">{{ title.value.length }} / 128</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div>
+    <mat-form-field class="example-full-width" class="inline">
+      <mat-label>Blueprint String</mat-label>
+      <input
+        matInput
+        #blueprint
+        maxlength="32768"
+        placeholder="blueprint_string (copy+paste from factorio)"
+        formControlName="blueprint_string"
+      />
+      <mat-hint align="start"
+        ><strong>Blueprint string. Copy paste it from factorio!</strong>
+      </mat-hint>
+      <mat-hint align="end">{{ blueprint.value.length }} / 32768</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div>
+    <mat-form-field class="example-full-width" class="inline">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        #description
+        maxlength="512"
+        placeholder="Belt balancer"
+        formControlName="description"
+      />
+      <mat-hint align="start"
+        ><strong>Title of your blueprint</strong>
+      </mat-hint>
+      <mat-hint align="end">{{ description.value.length }} / 512</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div class="">
+    <h3>Images</h3>
+    <input type="file" (change)="uploadFiles($event)" multiple />
+  </div>
+  <br />
+
+  <div class="upload-button">
+    <button mat-button color="primary">
+      Upload
+    </button>
+  </div>
+</form>
