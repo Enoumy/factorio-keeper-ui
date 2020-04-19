@@ -24,6 +24,8 @@ import { MissingPageComponent } from "./missing-page/missing-page.component";
 import { HomepageComponent } from "./homepage/homepage.component";
 import { BlueprintViewComponent } from "./blueprint-view/blueprint-view.component";
 
+import { BlueprintsService } from "./blueprints.service";
+
 const appRoutes: Routes = [
   { path: "blueprints", component: BlueprintsListComponent },
   { path: "blueprint/:blueprint_id", component: BlueprintViewComponent },
@@ -61,7 +63,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatSnackBarModule
   ],
-  providers: [],
+  providers: [BlueprintsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
