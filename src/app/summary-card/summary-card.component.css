@@ -1,4 +1,6 @@
 .blueprint-card {
+  flex: 0 1 calc(33.3% - 32px);
   max-width: 300px;
   margin-top: 8px;
+  margin-right: 8px;
 }

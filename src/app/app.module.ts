@@ -24,9 +24,9 @@ import { UploadBlueprintComponent } from "./upload-blueprint/upload-blueprint.co
 import { MissingPageComponent } from "./missing-page/missing-page.component";
 import { HomepageComponent } from "./homepage/homepage.component";
 import { BlueprintViewComponent } from "./blueprint-view/blueprint-view.component";
+import { SummaryCardComponent } from "./summary-card/summary-card.component";
 
 import { BlueprintsService } from "./blueprints.service";
-import { SummaryCardComponent } from './summary-card/summary-card.component';
 
 const appRoutes: Routes = [
   { path: "blueprints", component: BlueprintsListComponent },

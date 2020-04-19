@@ -1,9 +1,7 @@
-<h1>Blueprints List Component</h1>
+<h1>Recent Blueprints</h1>
 
-Hi
-<p>{{ blueprint_ids }}</p>
-
-<app-summary-card [blueprint_id]="5"></app-summary-card>
-<app-summary-card [blueprint_id]="6"></app-summary-card>
-<app-summary-card [blueprint_id]="7"></app-summary-card>
-<app-summary-card [blueprint_id]="14"></app-summary-card>
+<div class="summary-list">
+  <ng-container *ngFor="let id of blueprint_ids">
+    <app-summary-card [blueprint_id]="id"></app-summary-card>
+  </ng-container>
+</div>
