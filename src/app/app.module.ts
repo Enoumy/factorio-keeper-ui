@@ -15,6 +15,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatCardModule } from "@angular/material/card";
 
 import { BlueprintsListComponent } from "./blueprints-list/blueprints-list.component";
 import { ProfileViewComponent } from "./profile-view/profile-view.component";
@@ -25,6 +26,7 @@ import { HomepageComponent } from "./homepage/homepage.component";
 import { BlueprintViewComponent } from "./blueprint-view/blueprint-view.component";
 
 import { BlueprintsService } from "./blueprints.service";
+import { SummaryCardComponent } from './summary-card/summary-card.component';
 
 const appRoutes: Routes = [
   { path: "blueprints", component: BlueprintsListComponent },
@@ -46,7 +48,8 @@ const appRoutes: Routes = [
     UploadBlueprintComponent,
     MissingPageComponent,
     HomepageComponent,
-    BlueprintViewComponent
+    BlueprintViewComponent,
+    SummaryCardComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
@@ -61,7 +64,8 @@ const appRoutes: Routes = [
     MatListModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   providers: [BlueprintsService],
   bootstrap: [AppComponent]

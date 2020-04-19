@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { BlueprintsService } from "../blueprints.service";
 
 @Component({
@@ -9,9 +10,13 @@ import { BlueprintsService } from "../blueprints.service";
 export class BlueprintsListComponent implements OnInit {
   blueprint_ids;
 
-  constructor(private blueprintsService: BlueprintsService) {}
+  constructor(
+    private blueprintsService: BlueprintsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    console.log(this.router.url);
     this.fetchBlueprints();
   }
 

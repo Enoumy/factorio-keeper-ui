@@ -12,4 +12,10 @@ export class BlueprintsService {
   fetchBlueprints() {
     return this.http.get(server_url + "/blueprints");
   }
+
+  fetchBlueprintSummary(blueprint_id: string | number) {
+    return this.http.get(
+      server_url + "/blueprint/" + blueprint_id + "/summary"
+    );
+  }
 }
