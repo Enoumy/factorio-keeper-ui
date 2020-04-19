@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 const server_url = "http://localhost:3000/upload";
 
@@ -37,7 +38,11 @@ async function fileArrayToImageArray(file_array: any[]) {
 export class UploadBlueprintComponent implements OnInit {
   form: FormGroup;
 
-  constructor(public fb: FormBuilder, private http: HttpClient) {
+  constructor(
+    public fb: FormBuilder,
+    private http: HttpClient,
+    private _snackBar: MatSnackBar
+  ) {
     this.form = this.fb.group({
       username: [""],
       pin: [""],
@@ -78,10 +83,33 @@ export class UploadBlueprintComponent implements OnInit {
         response => {
           console.log("hi");
           console.log(response);
+          this._snackBar.open("Blueprint uploaded successfully!", "close", {
+            duration: 3000
+          });
         },
         error => {
           console.log("hi");
           console.log(error);
+          console.log(error.status);
+          for (let key in error) {
+            console.log(key);
+          }
+
+          let message = "Error posting data";
+
+          if (error.status === 0) {
+            message += ": backend server not found!";
+          } else if (error.status === 400) {
+            message += ": invalid form data, check title and blueprint_string";
+          } else if (error.status === 401) {
+            message += ": unauthorized permission for " + data["username"];
+          }
+
+          if (error.status === 200) {
+            message = "Blueprint uploaded successfully!";
+          }
+
+          this._snackBar.open(message, "close", { duration: 3000 });
         }
       );
     });

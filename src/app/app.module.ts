@@ -14,6 +14,8 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatIconModule } from "@angular/material/icon";
 import { MatListModule } from "@angular/material/list";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+
 import { BlueprintsListComponent } from "./blueprints-list/blueprints-list.component";
 import { ProfileViewComponent } from "./profile-view/profile-view.component";
 import { ProfileMenuComponent } from "./profile-menu/profile-menu.component";
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     MatIconModule,
     MatListModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
