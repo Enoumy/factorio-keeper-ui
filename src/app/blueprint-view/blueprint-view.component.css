@@ -1,0 +1,26 @@
+.blueprint-view {
+  max-width: 700px;
+  margin-top: 16px;
+}
+
+.image-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.image-list > * {
+  box-sizing: border-box;
+}
+
+.image-list > *:not(:last-child) {
+  margin-right: 32px;
+}
+
+.image-card {
+  flex: 0 1 calc(33.3% - 32px);
+  max-width: 200px;
+  margin-top: 4px;
+  margin-right: 4px;
+}

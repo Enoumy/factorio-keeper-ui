@@ -18,4 +18,8 @@ export class BlueprintsService {
       server_url + "/blueprint/" + blueprint_id + "/summary"
     );
   }
+
+  fetchBlueprint(blueprint_id: string | number) {
+    return this.http.get(server_url + "/blueprint/" + blueprint_id);
+  }
 }
