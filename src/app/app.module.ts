@@ -27,6 +27,7 @@ import { BlueprintViewComponent } from "./blueprint-view/blueprint-view.componen
 import { SummaryCardComponent } from "./summary-card/summary-card.component";
 
 import { BlueprintsService } from "./blueprints.service";
+import { UsersService } from "./users.service";
 
 const appRoutes: Routes = [
   { path: "blueprints", component: BlueprintsListComponent },
