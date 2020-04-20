@@ -1,0 +1,14 @@
+.summary-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.summary-list > * {
+  box-sizing: border-box;
+}
+
+.summary-list > *:not(:last-child) {
+  margin-right: 32px;
+}

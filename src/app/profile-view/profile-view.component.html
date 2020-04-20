@@ -1,1 +1,15 @@
 <h1>{{ user_id }}'s profile</h1>
+
+<mat-card-subtitle
+  >Created date: {{ user_data.created_date }}
+</mat-card-subtitle>
+
+<button mat-raised-button color="primary">
+  COPY BLUEPRINT BOOK
+</button>
+
+<div class="summary-list">
+  <ng-container *ngFor="let id of user_data.blueprints">
+    <app-summary-card [blueprint_id]="id"></app-summary-card>
+  </ng-container>
+</div>
