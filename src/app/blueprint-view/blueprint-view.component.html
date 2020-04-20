@@ -1,65 +1,29 @@
 <mat-card class="blueprint-view">
   <mat-card-header>
-    <mat-card-title>Blueprint Title</mat-card-title>
-    <mat-card-subtitle>Created by</mat-card-subtitle>
+    <mat-card-title>{{ blueprint_data.title }}</mat-card-title>
+    <mat-card-subtitle
+      >Created by: {{ blueprint_data.created_by }}</mat-card-subtitle
+    >
   </mat-card-header>
   <mat-card-actions>
     <button mat-raised-button>ADD</button>
     <button mat-raised-button color="primary">COPY BLUEPRINT STRING</button>
   </mat-card-actions>
+  <p>
+    {{ blueprint_data.description }}
+  </p>
   <img
     mat-card-image
-    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-    alt="Photo of a Shiba Inu"
+    src="{{ blueprint_data.image_urls[0] }}"
+    alt="{{ blueprint_data.title }}"
   />
   <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz
-      breeds of dog from Japan. A small, agile dog that copes very well with
-      mountainous terrain, the Shiba Inu was originally bred for hunting.
-    </p>
-
     <div class="image-list">
-      <div class="image-card">
-        <img
-          class="image-card"
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-      </div>
-      <div class="image-card">
-        <img
-          class="image-card"
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-      </div>
-      <div class="image-card">
-        <img
-          class="image-card"
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-      </div>
-      <div class="image-card">
-        <img
-          class="image-card"
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-      </div>
-      <div class="image-card">
-        <img
-          class="image-card"
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-          alt="Photo of a Shiba Inu"
-        />
-      </div>
+      <ng-container *ngFor="let url of blueprint_data.image_urls">
+        <div class="image-card">
+          <img class="image-card" mat-card-image src="{{ url }}" />
+        </div>
+      </ng-container>
     </div>
   </mat-card-content>
 </mat-card>
