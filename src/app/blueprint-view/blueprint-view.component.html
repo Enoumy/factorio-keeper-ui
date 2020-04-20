@@ -7,7 +7,13 @@
   </mat-card-header>
   <mat-card-actions>
     <button mat-raised-button>ADD</button>
-    <button mat-raised-button color="primary">COPY BLUEPRINT STRING</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="copyBlueprintString($event)"
+    >
+      COPY BLUEPRINT STRING
+    </button>
   </mat-card-actions>
   <p>
     {{ blueprint_data.description }}

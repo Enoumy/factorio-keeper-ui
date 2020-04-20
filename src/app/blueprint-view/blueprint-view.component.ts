@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { BlueprintsService } from "../blueprints.service";
+import copy from "copy-to-clipboard";
 
 const image_server_url: string = "http://localhost:3000";
 
@@ -65,5 +66,9 @@ export class BlueprintViewComponent implements OnInit {
 
       console.log(this.blueprint_data);
     });
+  }
+
+  copyBlueprintString(event) {
+    copy(this.blueprint_data.blueprint_string);
   }
 }
