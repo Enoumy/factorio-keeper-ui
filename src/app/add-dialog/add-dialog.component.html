@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Add to Profile</h1>
+<form [formGroup]="form" (ngSubmit)="submitForm()"></form>
+
+<p>
+  You'll need your username and name, if you don't have a username, no worries!
+  You can create a new profile by using a new username and new pin!
+</p>
+
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div>
+    <mat-form-field class="inline">
+      <mat-label>Player Username</mat-label>
+      <input
+        matInput
+        #message
+        maxlength="64"
+        placeholder="factorioplayer123"
+        formControlName="username"
+      />
+      <mat-hint align="start"
+        ><strong>Don't disclose personal info</strong>
+      </mat-hint>
+      <mat-hint align="end">{{ message.value.length }} / 64</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div>
+    <mat-form-field class="example-full-width" class="inline">
+      <mat-label>Player PIN</mat-label>
+      <input
+        matInput
+        #pin
+        maxlength="16"
+        placeholder="1234"
+        formControlName="pin"
+      />
+      <mat-hint align="start"
+        ><strong
+          >Access code to modify your profile. Can be anything, just remember
+          it!</strong
+        >
+      </mat-hint>
+      <mat-hint align="end">{{ pin.value.length }} / 16</mat-hint>
+    </mat-form-field>
+  </div>
+  <br />
+
+  <div class="upload-button">
+    <button mat-button color="primary" type="button" (click)="submitForm()">
+      Upload
+    </button>
+  </div>
+</form>

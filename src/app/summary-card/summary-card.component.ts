@@ -1,5 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Inject } from "@angular/core";
 import { BlueprintsService } from "../blueprints.service";
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from "@angular/material/dialog";
+import { AddDialogComponent } from "../add-dialog/add-dialog.component";
 
 const image_server_url = "http://localhost:3000";
 
@@ -9,6 +15,10 @@ interface Summary {
   created_by?: string;
   image_url?: string;
   created_date?: string;
+}
+
+interface DialogData {
+  blueprint_id: string;
 }
 
 @Component({
@@ -30,7 +40,10 @@ export class SummaryCardComponent implements OnInit {
 
   summary_data: Summary;
 
-  constructor(private blueprintsService: BlueprintsService) {}
+  constructor(
+    private blueprintsService: BlueprintsService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {}
 
@@ -57,6 +70,18 @@ export class SummaryCardComponent implements OnInit {
         }
       }
       console.log("Image url: " + this.summary_data.image_url);
+    });
+  }
+
+  openDialog(blueprint_id) {
+    console.log(blueprint_id);
+    const dialogRef = this.dialog.open(AddDialogComponent, {
+      width: "500px",
+      data: { blueprint_id: blueprint_id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
     });
   }
 }
