@@ -2,8 +2,8 @@
   <mat-card-header>
     <mat-card-title>{{ blueprint_data.title }}</mat-card-title>
     <mat-card-subtitle
-      >Created by: {{ blueprint_data.created_by }}</mat-card-subtitle
-    >
+      >Created by: {{ blueprint_data.created_by }}
+    </mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
     <button mat-raised-button>ADD</button>
@@ -18,6 +18,9 @@
   <p>
     {{ blueprint_data.description }}
   </p>
+  <mat-card-subtitle
+    >Created date: {{ blueprint_data.created_date }}
+  </mat-card-subtitle>
   <img
     mat-card-image
     src="{{ blueprint_data.image_urls[0] }}"
