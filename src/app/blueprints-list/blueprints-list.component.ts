@@ -8,7 +8,7 @@ import { BlueprintsService } from "../blueprints.service";
   styleUrls: ["./blueprints-list.component.css"]
 })
 export class BlueprintsListComponent implements OnInit {
-  blueprint_ids;
+  blueprint_ids: any;
 
   constructor(
     private blueprintsService: BlueprintsService,
