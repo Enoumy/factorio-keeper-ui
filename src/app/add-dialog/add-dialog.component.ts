@@ -6,6 +6,7 @@ import {
   MAT_DIALOG_DATA
 } from "@angular/material/dialog";
 import { HttpClient } from "@angular/common/http";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 const server_url = "http://localhost:3000/own";
 
@@ -25,7 +26,8 @@ export class AddDialogComponent {
     public dialogRef: MatDialogRef<AddDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
     public fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private _snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
       username: [""],
@@ -46,9 +48,19 @@ export class AddDialogComponent {
     this.http.post<any>(server_url, data).subscribe(
       response => {
         console.log(response);
+        this._snackBar.open("Blueprint has been added!", "close", {
+          duration: 3000
+        });
       },
       error => {
         console.log(error);
+
+        let message =
+          "Incorrect pin, try making a new user profile and transferring previous blueprints";
+        if (error.status === 200) {
+          message = "Blueprint has been added!";
+        }
+        this._snackBar.open(message, "close", { duration: 3000 });
       }
     );
   }
