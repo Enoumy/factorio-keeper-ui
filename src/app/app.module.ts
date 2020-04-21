@@ -17,6 +17,7 @@ import { MatListModule } from "@angular/material/list";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatCardModule } from "@angular/material/card";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 import { BlueprintsListComponent } from "./blueprints-list/blueprints-list.component";
 import { ProfileViewComponent } from "./profile-view/profile-view.component";
@@ -72,7 +73,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     MatSnackBarModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [BlueprintsService],
   bootstrap: [AppComponent]

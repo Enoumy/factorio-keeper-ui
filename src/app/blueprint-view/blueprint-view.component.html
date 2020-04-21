@@ -1,4 +1,4 @@
-<mat-card class="blueprint-view">
+<mat-card *ngIf="blueprint_data" class="blueprint-view">
   <mat-card-header>
     <mat-card-title>{{ blueprint_data.title }}</mat-card-title>
     <mat-card-subtitle
@@ -33,3 +33,6 @@
     </div>
   </mat-card-content>
 </mat-card>
+<div class="loading">
+  <mat-spinner *ngIf="!blueprint_data"></mat-spinner>
+</div>
