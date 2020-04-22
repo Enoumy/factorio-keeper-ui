@@ -1,0 +1,17 @@
+.canvas {
+  margin-left: -16px;
+  margin-top: -21px;
+  background-color: #303f9f;
+  text-align: center;
+  color: white;
+}
+
+.title {
+  color: white;
+}
+
+.selector {
+  margin-right: 16px;
+  margin-top: 16px;
+  margin-bottom: 32px;
+}

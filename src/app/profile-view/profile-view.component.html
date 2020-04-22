@@ -1,6 +1,6 @@
 <h1>{{ user_id }}'s profile</h1>
 
-<div *ngIf="user_data">
+<div *ngIf="user_data; else showLoading">
   <mat-card-subtitle
     >Created date: {{ user_data.created_date }}
   </mat-card-subtitle>
@@ -16,6 +16,8 @@
   </div>
 </div>
 
-<div class="loading" *ngIf="!loading">
-  <mat-spinner></mat-spinner>
-</div>
+<ng-template #showLoading>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

@@ -1,11 +1,13 @@
 <h1>Recent Blueprints</h1>
 
-<div *ngIf="blueprint_ids" class="summary-list">
+<div *ngIf="blueprint_ids; else showLoading" class="summary-list">
   <ng-container *ngFor="let id of blueprint_ids">
     <app-summary-card [blueprint_id]="id"></app-summary-card>
   </ng-container>
 </div>
 
-<div class="loading" *ngIf="!blueprint_data">
-  <mat-spinner></mat-spinner>
-</div>
+<ng-template #showLoading>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
