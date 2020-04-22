@@ -42,13 +42,16 @@ function blueprintStringsToBlueprintBook(blueprint_strings: string[]): string {
 export class ProfileViewComponent implements OnInit {
   user_id: string;
   user_data: UserData;
+  found: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private usersService: UsersService,
     private blueprintsService: BlueprintsService,
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.found = true;
+  }
 
   ngOnInit() {
     this.user_id = this.route.snapshot.paramMap.get("profile_id");
@@ -56,10 +59,20 @@ export class ProfileViewComponent implements OnInit {
   }
 
   fetchUser(id: string) {
-    this.usersService.fetchUser(id).subscribe((data: UserData) => {
-      console.log(data);
-      this.user_data = data;
-    });
+    this.usersService.fetchUser(id).subscribe(
+      (data: UserData) => {
+        console.log(data);
+        this.user_data = data;
+        if (!data) {
+          this.found = false;
+          this._snackBar.open("User " + id + " not found!", "close");
+        }
+      },
+      err => {
+        this.found = false;
+        this._snackBar.open("User " + id + " not found!", "close");
+      }
+    );
   }
 
   copyBlueprintBookString() {

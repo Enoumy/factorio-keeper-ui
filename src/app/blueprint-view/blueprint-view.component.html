@@ -6,7 +6,7 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-raised-button>ADD</button>
+    <button mat-raised-button (click)="openDialog(blueprint_id)">ADD</button>
     <button
       mat-raised-button
       color="primary"
@@ -37,5 +37,6 @@
   </mat-card-content>
 </mat-card>
 <div class="loading">
-  <mat-spinner *ngIf="!blueprint_data"></mat-spinner>
+  <mat-spinner *ngIf="!blueprint_data && !notFound"></mat-spinner>
+  <p *ngIf="notFound">Blueprint not found!</p>
 </div>

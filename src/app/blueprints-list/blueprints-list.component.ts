@@ -9,11 +9,14 @@ import { BlueprintsService } from "../blueprints.service";
 })
 export class BlueprintsListComponent implements OnInit {
   blueprint_ids: any;
+  notFound: boolean;
 
   constructor(
     private blueprintsService: BlueprintsService,
     private router: Router
-  ) {}
+  ) {
+    this.notFound = false;
+  }
 
   ngOnInit() {
     console.log(this.router.url);
@@ -21,9 +24,14 @@ export class BlueprintsListComponent implements OnInit {
   }
 
   fetchBlueprints() {
-    this.blueprintsService.fetchBlueprints().subscribe(data => {
-      console.log(data);
-      this.blueprint_ids = data;
-    });
+    this.blueprintsService.fetchBlueprints().subscribe(
+      data => {
+        console.log(data);
+        this.blueprint_ids = data;
+      },
+      err => {
+        this.notFound = true;
+      }
+    );
   }
 }

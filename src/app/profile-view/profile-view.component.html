@@ -17,7 +17,11 @@
 </div>
 
 <ng-template #showLoading>
-  <div class="loading">
+  <div class="loading" *ngIf="found; else notFound">
     <mat-spinner></mat-spinner>
   </div>
 </ng-template>
+
+<ng-template #notFound
+  ><p>User {{ user_id }} not found!</p></ng-template
+>
