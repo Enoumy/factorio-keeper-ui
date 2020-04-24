@@ -1,27 +1,75 @@
-# FactorioKeeperUi
+# Factorio Keeper UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
+> Angular server that handles the frontend side of Factorio Blueprint Keeper!
 
-## Development server
+## Introduction
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+[**Factorio**](https://factorio.com/) is one of my favorite games. It's a factory
+building game where you can build your own factory as simple or as complicated as
+you may want it to be. One of the mechanics of the game allows you to save a
+part of your factory in the form of a **blueprint**. These blueprints can later
+be used to plan out future expansions, _and even automatic expansions_, of your
+factory. However, all the blueprints in your game are local to your machine.
 
-## Code scaffolding
+![Factorio background](https://hb.imgix.net/cb5424b775d4a6ac28320eb5b30dcc7b97963185.jpg?auto=compress,format&fit=crop&h=353&w=616&s=cf3e481fa618c41377308a1ecd902e1d)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+**Factorio Blueprint Keeper** allows users to post their own blueprints and
+download all of their blueprints in one go in the form of a blueprint book
+string that users can copy paste directly into their games!
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+In order to install this backend server you need to install
+[git](https://git-scm.com/), [node npm](https://nodejs.org/en/)
+and [Angular cli](https://cli.angular.io/), preferably in that order.
 
-## Running unit tests
+You must first clone this repository with:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+$ git clone https://github.com/Enoumy/factorio-keeper-ui.git
+```
 
-## Running end-to-end tests
+Afterwards, you must install the dependencies of the server by cd'ing into
+the cloned repository and running:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```bash
+$ npm i
+```
 
-## Further help
+## Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+> Note: in order for the UI to work properly, it needs to communicate to a
+> backend server. This backend server can be setup with the instructions at
+> this repository: [enoumy/factorio-keeper-db](https://github.com/Enoumy/factorio-keeper-db)
+
+Starting up the Angular server that users can get their frontend client from
+can be done with a single command. It is important to note that you must
+have installed the [Angular cli](https://cli.angular.io/) in order for this
+step to work.
+
+```bash
+$ ng serve --open
+```
+
+This will start the Angular server where users can get their frontend ui
+from through their browser. The `--open` flag makes it so that a new browser
+tab is opened when the server starts. The Angular server should have been opened
+at `localhost:4200`.
+
+Once you're done using the server, you can close it by hitting `ctrl + c` on the
+console that you opened it with.
+
+## Views
+
+The website for this project includes multiple pages. Each one of them has a
+different role in helping the user manage blueprints.
+
+| Route                    | Description                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------ |
+| /                        | Homepage                                                                             |
+| /blueprints              | List of blueprints ordered from most recent to oldest                                |
+| /blueprint/:blueprint_id | View of single blueprint. The blueprint string of the blueprint can be copied here.  |
+| /profile                 | Username lookup search bar.                                                          |
+| /profile/:profile_id     | View of a user's profile. The entire blueprints can be copied as a book string here. |
+| /upload                  | Users can upload their blueprints on this page.                                      |
+| \*\* (Any other route)   | Cool looking 404 Page                                                                |
